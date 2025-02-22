@@ -35,3 +35,32 @@ invoices.forEach(inv => {
     console.log(inv.amount, inv.client, inv.format());
     
 });
+
+
+
+interface isPerson {
+    name: string,
+    age: number,
+    speak(a: string): void,
+    spend(b: number): number
+}
+const me: isPerson = {
+    name: 'Ali',
+    age: 21,
+    speak(text: string): void {
+        console.log(text);    
+    },
+    spend(money: number): number {
+        console.log('I spent', money);
+        return money
+    }
+
+}
+const greetPerson = (person: isPerson) => {
+        console.log(person.name);
+        
+}
+
+greetPerson(me)
+
+console.log(me);

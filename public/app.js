@@ -21,3 +21,19 @@ invoices.push(invTwo);
 invoices.forEach(inv => {
     console.log(inv.amount, inv.client, inv.format());
 });
+const me = {
+    name: 'Ali',
+    age: 21,
+    speak(text) {
+        console.log(text);
+    },
+    spend(money) {
+        console.log('I spent', money);
+        return money;
+    }
+};
+const greetPerson = (person) => {
+    console.log(person.name);
+};
+greetPerson(me);
+console.log(me);
