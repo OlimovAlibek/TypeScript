@@ -1,25 +1,28 @@
 import { Invoice } from './classes/invoice.js';
-// const form = document.querySelector('.new-item-form') as HTMLFormElement;
-// const type = document.querySelector('#type') as HTMLSelectElement;
-// const toFrom = document.querySelector('#tofrom') as HTMLInputElement;
-// const details = document.querySelector('#details') as HTMLInputElement;
-// const amount = document.querySelector('#amount') as HTMLInputElement;
-// form.addEventListener('submit', (e: Event) => {
-//     e.preventDefault()
-//     console.log(
-//         type.value,
-//         toFrom.value,
-//         details.value,
-//         amount.valueAsNumber
-//     );
-// })
-const invOne = new Invoice('Ali', 'website', 300);
-const invTwo = new Invoice('Nafisa', 'Finance', 200);
-let invoices = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-invoices.forEach(inv => {
-    console.log(inv.amount, inv.client, inv.format());
+import { Payment } from './classes/payment.js';
+let docOne;
+let docTwo;
+docOne = new Invoice('Shaxzoda', 'Media', 540);
+docTwo = new Payment('Anastasia', 'SMM', 640);
+let docs = [];
+docs.push(docOne);
+docs.push(docTwo);
+console.log(docs);
+const form = document.querySelector('.new-item-form');
+const type = document.querySelector('#type');
+const toFrom = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
 const me = {
     name: 'Ali',
