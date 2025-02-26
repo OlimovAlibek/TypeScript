@@ -89,3 +89,24 @@ const greetPerson = (person: isPerson) => {
 greetPerson(me)
 
 console.log(me);
+
+
+const addUID = <T extends {name: string}>(obj: T) => {
+    let uid = Math.floor(Math.random() * 100)
+    return {...obj, uid}
+}
+
+let docThree = addUID({name: 'Ali', age: 21})
+console.log(docThree.name);
+
+interface Resource<T> {
+    uid: number,
+    resourceName: string,
+    data: T
+}
+
+const docFour: Resource<object> = {
+    uid: 1,
+    resourceName: 'person',
+    data: {name: 'Ali'}
+}
