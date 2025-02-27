@@ -110,3 +110,27 @@ const docFour: Resource<object> = {
     resourceName: 'person',
     data: {name: 'Ali'}
 }
+
+enum resourceType {BOOK, AUTHOR, FILM, DIRECTOR, PERSON}
+
+interface Resource<T> {
+    uid: number,
+    resourceType: resourceType,
+    data: T
+}   
+
+const docone: Resource<object> = {
+    uid: 1,
+    resourceType: resourceType.BOOK,
+    data: { title: 'name of the wind' },
+    resourceName: ''
+}
+
+const doctwo: Resource<object> = {
+    uid: 10,
+    resourceType: resourceType.PERSON,
+    data: { name: 'Ali' },
+    resourceName: ''
+}
+
+console.log(docone, doctwo);

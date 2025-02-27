@@ -43,3 +43,35 @@ const greetPerson = (person) => {
 };
 greetPerson(me);
 console.log(me);
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let docThree = addUID({ name: 'Ali', age: 21 });
+console.log(docThree.name);
+const docFour = {
+    uid: 1,
+    resourceName: 'person',
+    data: { name: 'Ali' }
+};
+var resourceType;
+(function (resourceType) {
+    resourceType[resourceType["BOOK"] = 0] = "BOOK";
+    resourceType[resourceType["AUTHOR"] = 1] = "AUTHOR";
+    resourceType[resourceType["FILM"] = 2] = "FILM";
+    resourceType[resourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    resourceType[resourceType["PERSON"] = 4] = "PERSON";
+})(resourceType || (resourceType = {}));
+const docone = {
+    uid: 1,
+    resourceType: resourceType.BOOK,
+    data: { title: 'name of the wind' },
+    resourceName: ''
+};
+const doctwo = {
+    uid: 10,
+    resourceType: resourceType.PERSON,
+    data: { name: 'Ali' },
+    resourceName: ''
+};
+console.log(docone, doctwo);
