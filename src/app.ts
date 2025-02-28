@@ -34,10 +34,13 @@ form.addEventListener('submit', (e: Event) => {
 
     let doc: HasFormatter
 
+    let values: [string, string, number]
+    values = [toFrom.value, details.value, amount.valueAsNumber]
+
     if(type.value === 'invoice') {
-        doc = new Invoice(toFrom.value, details.value, amount.valueAsNumber)
+        doc = new Invoice(...values)
     } else {
-        doc = new Payment(toFrom.value, details.value, amount.valueAsNumber)
+        doc = new Payment(...values)
     }
 
     list.render(doc, type.value, 'end')
@@ -134,3 +137,17 @@ const doctwo: Resource<object> = {
 }
 
 console.log(docone, doctwo);
+
+
+const arr = ['Ali', 21, true]
+arr[0] = false
+arr[1] = 'Ali'
+arr[2] = 21     
+
+const tup: [string, number, boolean] = ['Ali', 21, true]
+tup[0] = 'Ali'
+tup[1] = 21
+tup[2] = true   
+
+let student: [string, number]
+student = ['Ali', 21]
